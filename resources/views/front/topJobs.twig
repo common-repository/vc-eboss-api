@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+			{% for topJob in topJobs %}
+				<div class="row">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">{{ topJob.job_title }}</h3>
+						</div>
+						<div class="panel-body">
+							{% if not topJob.salary2 %}
+								<div class="job-salary">Salary : {{ topJob.salary }} </div>
+							{% else %}
+								<div class="job-salary">Salary : {{ topJob.salary }} - {{ topJob.salary2 }} </div>
+							{% endif %}
+							<div class="row"><div class="job-details detail-wrapper">{{ topJob.detail|raw }}</div> </div>
+							<div class="job-interview-date">Interview Date : {{ topJob.interview_date|date("d-m-y") }}</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>

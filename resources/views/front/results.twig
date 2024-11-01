@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+
+			<br/>
+			<div class="row">
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<th>Job Title</th>
+							<th>Job Detail</th>
+							<th>Country</th>
+							<th>Region</th>
+							<th>Salary</th>
+							<th></th>
+						</thead>
+						<tbody>
+							{% if jobs %}
+								{% for item in jobs %}
+
+									<tr>
+										<td> {{ item['job.job_title']|e }} </td>
+										<td> <div class="detail-wrapper">{{ item['job.detail']|raw }} </div></td>
+										<td> {{ ( item['list_country.name'] ) ? item['list_country.name'] : '' }}</td>
+										<td>{{ ( item['list_region.name'] ) ? item['list_region.name'] : '' }}</td>
+										<td>{{ ( item['job.salary'] ) ? item['job.salary'] : '' }} </td>
+										<td><a href="{{ uploadCV }}?uid={{ item['job.UID'] }}&id={{ item['job.id'] }}" class="btn btn-primary btn-sm"> Apply Now </a></td>
+
+									</tr>
+								{% endfor %}
+								{% else %}
+								<tr>
+									<td></td>
+									<td><h4>No results found.</h4></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							{% endif %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,106 @@
+<style type="text/css">
+	#loader{
+		display: none;
+	}
+</style>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+			<form action="{{ thankyouPage }}" name="register" method="POST" role="form" enctype="multipart/form-data">
+				<input type="hidden" name="register-type" id="register-type" class="form-control" value="register-with-cv">
+
+				<div class="form-group">
+					<label for="upload-cv">Upload CV</label>
+					<input type="file" id="upload-cv" name="cv">
+					<p class="help-block"> Upload your resume / CV </p>
+				</div>
+
+				<div class="form-group">
+					<label for="first-name">First Name</label>
+					<input type="text" name="first-name" id="first-name" class="form-control" value="">
+				</div>
+
+				<div class="form-group">
+					<label for="last-name">Last Name</label>
+					<input type="text" name="last-name" id="last-name" class="form-control" value="">
+				</div>
+
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="text" name="email" id="email" class="form-control" value="">
+				</div>
+
+				<div class="form-group">
+					<label for="telephone">Telephone</label>
+					<input type="text" name="telephone" id="telephone" class="form-control" value="">
+				</div>
+
+				<div class="form-group">
+					<label for="mobile-phone">Mobile Phone</label>
+					<input type="text" name="mobile-phone" id="mobile-phone" class="form-control" value="">
+				</div>
+
+				<div class="form-group">
+					<label for="work-phone">Work Phone</label>
+					<input type="text" name="work-phone" id="work-phone" class="form-control" value="">
+				</div>
+
+				<div class="form-group">
+					<label for="job-title">Job Title</label>
+					<select name="job-title" id="job-title" class="form-control">
+						<option value="" selected>-- ALL --</option>
+						{% for jobTitle in jobTitles %}
+							<option value="{{ jobTitle.name|e }}">{{ jobTitle.name|e }}</option>
+						{% endfor %}
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="industry">Industry</label>
+
+					<select name="industry" id="industry" class="form-control">
+						<option value="" selected>-- ALL --</option>
+						{% for industry in industries %}
+							<option values="{{ industry.name|e }}"> {{ industry.name|e }} </option>
+						{% endfor %}
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="salary">Salary</label>
+					<select name="salary" id="salary" class="form-control">
+						<option value="">-- ALL --</option>
+						{% for salary in salaryRange %}
+							<option value="{{ salary|e }}">{{ salary|e }}</option>
+						{% endfor %}
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="country">Country</label>
+					<select name="country" id="country" class="form-control">
+						<option value="">-- ALL --</option>
+						{% for country in countries %}
+							<option value="{{ country.id|e }}" {{ ('216' in country.id) ? 'selected' : '' }} >{{ country.name|e }}</option>
+						{% endfor %}
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="region">Region</label>
+					<select name="region" id="region" class="form-control">
+						<option value="">-- ALL --</option>
+						{% for region in regions %}
+							<option value="{{ region.id|e }}">{{ region.name|e }}</option>
+						{% endfor %}
+					</select>
+				</div>
+
+
+				<button type="submit" class="btn btn-primary btn-lg pull-right">Submit</button>
+			</form>
+			<br/>	<br/>
+			<label id="loader" class="pull-left"> <img src="{{assetsUrl}}" /> Please wait while loading...</label>
+		</div>
+	</div>
+</div>

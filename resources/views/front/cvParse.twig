@@ -1,0 +1,11 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+			{% if (result && result['last_insert_id']) %}
+				<p class="bg-success" style="font-size: 18px;"> Thank you.... </p>
+			{% else %}
+				<p class="bg-success" style="font-size: 18px;"> Unable to process request. An account already exist for this email address. Please try again. </p>
+			{% endif %}
+		</div>
+	</div>
+</div>

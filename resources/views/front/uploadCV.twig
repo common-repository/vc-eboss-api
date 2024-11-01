@@ -1,0 +1,61 @@
+<style type="text/css">
+	#loader{
+		display: none;
+	}
+</style>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+			<br/>
+			<br/>
+			<div class="checkbox pull-right">
+				<label>
+					<input id="cv-toggle-option" type="checkbox">
+					Apply with CV only.
+				</label>
+			</div>
+
+			{# Upload, fill form and apply #}
+
+			<BR/>
+			<BR/>
+			<BR/>
+			<div id="cv-and-form" class="row">
+				<label for="text">Upload CV/Resume and fill in form to apply.</label>
+				<br/>
+				<br/>
+
+				<form action="{{ jobApplication }}" name="cv-upload" method="POST" role="form" enctype="multipart/form-data">
+					<div class="form-group">
+						<input type="file" name="cv" id="upload-cv">
+						<input type="hidden" name="uid" value="{{ uid }}">
+						<input type="hidden" name="job_id" value="{{id}}">
+						<p class="help-block"> Upload your resume / CV </p>
+					</div>
+				
+					<button type="submit" class="btn btn-primary btn-lg pull-right">Continue</button>
+				</form>
+			</div>
+
+			<div id="cv-only" class="row" style="display:none;">
+				<label for="text">Upload CV/Resume to apply.</label>
+				<BR/>
+				<BR/>
+
+				<form action="{{ cvparsePage }}" name="cv-upload" method="POST" role="form" enctype="multipart/form-data">
+				
+					<div class="form-group">
+						<input type="file" name="cv" id="upload-cv">
+						<input type="hidden" name="uid" value="{{ uid }}">
+						<input type="hidden" name="job_id" value="{{id}}">
+						<p class="help-block"> Upload your resume / CV </p>
+					</div>
+				
+					<button type="submit" class="btn btn-primary btn-lg pull-right">Continue</button>
+				</form>
+			</div>
+
+			<label id="loader" class="pull-left"> <img src="{{ assetsUrl }}" /> Please wait while loading...</label>
+		</div>
+	</div>
+</div>

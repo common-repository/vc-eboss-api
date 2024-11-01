@@ -1,0 +1,72 @@
+<div class="container">
+	<h3>Client List</h3>
+	<div class="row">
+		<div class="table-responsive">
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Contact</th>
+						<th>Position</th>
+						<th>Address</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for client in clients %}
+						<tr>
+							<td>{{ client.name }}</td>
+							<td>{{ client.email }}</td>
+							<td>
+								<div class="contact">
+									{% if client.main_phone %}
+										<label>Main Phone : {{ client.main_phone }} </label><br/>
+									{% endif %}
+									{% if client.mobile_phone %}
+										<label>Mobile Phone : {{ client.mobile_phone }} </label><br/>
+									{% endif %}
+									{% if client.fax %}
+										<label>Fax : {{ client.fax }} </label><br/>
+									{% endif %}
+								</div>
+							</td>
+							<td>{{ client.position }}</td>
+							<td>
+								<address>
+									{% if client.address1 %}
+										{{ client.address1 }}<br/>
+									{% endif %}
+									{% if client.address2 %}
+										{{ client.address2 }}<br/>
+									{% endif %}
+									{% if client.address3 %}
+										{{ client.address3 }}<br/>
+									{% endif %}
+									{% if client.city %}
+										{{ client.city }}<br/>
+									{% endif %}
+									{% if client.city %}
+										{{client.postcode}}
+									{% endif %}
+								</address>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		{# <div class="col-xs-1 col-sm-2 col-md-4 col-lg-8"> #}
+		<nav>
+			<ul class="pagination">
+				{% for page in paginate %}
+					<li>{{page|raw}}</li>
+				{% endfor %}
+			</ul>
+		</nav>
+
+		{# </div> #}
+	</div>
+</div>

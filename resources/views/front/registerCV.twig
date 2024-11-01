@@ -1,0 +1,26 @@
+<style type="text/css">
+	#loader{
+		display: none;
+	}
+</style>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+
+			<form action="{{cvparsePage}}" name="xstatus" method="POST" role="form" enctype="multipart/form-data">
+
+				<div class="form-group">
+					<input type="file" name="cv" id="upload-cv">
+					<p class="help-block">Upload your resume / CV </p>
+				</div>
+
+				<button type="submit" class="btn btn-primary btn-lg  pull-right">Submit</button>
+				<br/>
+			</form>
+
+			<br/>	<br/>
+			<label id="loader" class="pull-left"> <img src="{{ assetsUrl }}" /> Please wait while loading...</label>
+
+		</div>
+	</div>
+</div>

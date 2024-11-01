@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<h3>Candidates List</h3>
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Country Name</th>
+						<th>Region Name</th>
+						<th>Current Duties</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for candidate in candidates %}
+						<tr>
+							<td>{{ candidate.first_name }}</td>
+							<td>{{ candidate.surname }}</td>
+							<td>{{ candidate.email }}</td>
+							<td>{{candidate.country_id}}</td>
+							<td>{{candidate.region_id}}</td>
+							<td><div class="detail-wrapper">{{candidate.current_duties|raw}}</div></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+
+		<nav>
+			<ul class="pagination">
+				{% for page in paginate %}
+					<li>{{page|raw}}</li>
+				{% endfor %}
+			</ul>
+		</nav>
+
+	</div>
+</div>
